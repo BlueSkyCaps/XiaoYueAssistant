@@ -58,9 +58,11 @@ namespace XiaoYueStartUpForWpfApp.core.control_station
         /// 注意: 连接的uri是自身服务器, 作为中转站, 由自身服务器向API传递数据并返回
         private string ImageRecongnitionUsual(string getImgPath)
         {
-            string ownUri = "http://www.coollsx.com/api-station/transfer/bd/b73af658bcc5fb4a963c8a1ee0d05e2a/img-rg/object";
+            // 下行url访问百度图像识别接口，需要更换为自己的access token，参见根目录README.md
+            string ownUri = "https://aip.baidubce.com/rest/2.0/image-classify/v2/advanced_general?access_token=你获取的ak";
+            // string ownUri = "http://www.coollsx.com/api-station/transfer/bd/???/img-rg/object";
             Encoding encoding = Encoding.UTF8;
-            HttpWebRequest request = (HttpWebRequest)WebRequest.Create(ownUri + "/index.php");
+            HttpWebRequest request = (HttpWebRequest)WebRequest.Create(ownUri);
             request.Method = "POST";
             request.AllowAutoRedirect = false;
             request.ContentType = "application/x-www-form-urlencoded";
@@ -125,9 +127,11 @@ namespace XiaoYueStartUpForWpfApp.core.control_station
         /// 注意: 连接的uri是自身服务器, 作为中转站, 由自身服务器向API传递数据并返回
         private string TextImageRecongnitionUsual(string getImgPath)
         {
-            string ownerUri = "http://www.coollsx.com/api-station/transfer/bd/b73af658bcc5fb4a963c8a1ee0d05e2a/text-rg/general";
+            // 下行url访问百度文字识别接口，需要更换为自己的access token，参见根目录README.md
+            string ownerUri = "https://aip.baidubce.com/rest/2.0/ocr/v1/general_basic?access_token=你获取的ak";
+            // string ownerUri = "http://www.coollsx.com/api-station/transfer/bd/???/text-rg/general";
             Encoding encoding = Encoding.UTF8;
-            HttpWebRequest request = (HttpWebRequest)WebRequest.Create(ownerUri + "/index.php");
+            HttpWebRequest request = (HttpWebRequest)WebRequest.Create(ownerUri);
             request.Method = "POST";
             request.AllowAutoRedirect = false;
             request.ContentType = "application/x-www-form-urlencoded";
