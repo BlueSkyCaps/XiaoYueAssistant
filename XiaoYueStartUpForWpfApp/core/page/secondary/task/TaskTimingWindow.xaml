@@ -1,0 +1,132 @@
+﻿<Window x:Class="XiaoYueStartUpForWpfApp.core.page.secondary.task.TaskTimingWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:XiaoYueStartUpForWpfApp.core.page.secondary.task"
+        mc:Ignorable="d"
+        WindowStyle="None"
+        AllowsTransparency="True"
+        Title="进行定时任务" Width="500"
+        ResizeMode="NoResize"  WindowStartupLocation = "CenterScreen" 
+        Foreground="Black"
+        ShowInTaskbar="False">
+    <StackPanel Orientation="Vertical" Background="White" >
+        <Grid>
+            <Label HorizontalAlignment="Left" VerticalAlignment="Center">进行定时任务</Label>
+            <Label Name="hide_lb" ToolTip="隐藏" HorizontalAlignment="Right" VerticalAlignment="Center" Foreground="Red" Width="24" Height="24" MouseDown="Hide_lb_MouseDown">
+                <Label.Background>
+                    <ImageBrush>
+                        <ImageBrush.ImageSource>
+                                <BitmapImage UriSource="/resources/interaction/px/30/task_win_close_24.png"/>
+                        </ImageBrush.ImageSource>
+                    </ImageBrush>
+                </Label.Background>
+                
+            </Label>
+        </Grid>
+        <Grid Background="White" Height="110">
+            <StackPanel  Orientation="Horizontal" Width="494" Margin="0,-6.667,0,80" Height="36.667" HorizontalAlignment="Center" VerticalAlignment="Center">
+                <Label ToolTip="给这次任务取个简要名字" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Content="取名" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0,2.38" Width="123.833" Foreground="Black" Background="White" FontWeight="Bold" />
+                <Label ToolTip="你需要备注哪些内容？定时到达时将会显示" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Content="备注" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0,2.38" Width="123.834" Foreground="Black" Background="White" FontWeight="Bold" />
+                <Label ToolTip="是提醒你？还是执行某些操作？"  HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Content="类型" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0,2.38" Width="123.833" Foreground="Black" Background="White" FontWeight="Bold" />
+                <Label ToolTip="开始倒计时任务，你可以中途撤销" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Content="选择" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0,2.38" Width="123.833" Foreground="Black" Background="White" FontWeight="Bold" />
+            </StackPanel>
+            <TextBox x:Name="task_textbox_one" HorizontalAlignment="Left" Height="35" Margin="22.667,46.334,0,0" TextWrapping="NoWrap" VerticalAlignment="Top" Width="79.333" Text="任务标题.."/>
+            <RichTextBox HorizontalAlignment="Left" Margin="125,46.334,0,0" VerticalAlignment="Top" Height="35" Width="117.147">
+                <FlowDocument>
+                    <Paragraph x:Name="task_pgh_one">
+                        <Run Text="在这里写下备注.."/>
+                    </Paragraph>
+                </FlowDocument>
+            </RichTextBox>
+            <ComboBox SelectionChanged="Task_combobox_one_SelectionChanged" x:Name="task_combobox_one" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" HorizontalAlignment="Left" VerticalAlignment="Top" Width="108" Margin="260.48,46.334,0,0" Height="35">
+                <ComboBoxItem Content="闹钟以及提醒"/>
+                <ComboBoxItem Content="打开某个应用"/>
+                <ComboBoxItem Content="关机操作"/>
+                <ComboBoxItem Content="锁屏操作"/>
+                <!--此ComboBoxItem用于用户未选择任何内容时选定-->
+                <ComboBoxItem Visibility="Collapsed" Content="无任何内容"/>
+            </ComboBox>
+            <Button x:Name="task_scbtn_one" ToolTip="倒计时任务，或中途撤销" Content="开始" HorizontalAlignment="Left" Margin="394.333,35,0,0" VerticalAlignment="Top" Width="75" Height="65" FontSize="14" BorderBrush="White" Foreground="#FF131313" Click="Task_scbtn_one_Click">
+                <Button.Background>
+                    <RadialGradientBrush>
+                        <GradientStop Color="White" Offset="1"/>
+                        <GradientStop Color="#FFF39797"/>
+                    </RadialGradientBrush>
+                </Button.Background>
+            </Button>
+            <Button x:Name="open_task_btn_one" Content="ADD" HorizontalAlignment="Center" VerticalAlignment="Center" Width="500" Panel.ZIndex="1" Height="110"  Background="#FFE2EEFF" FontSize="36" Click="Open_task_btn_one_Click"/>
+
+        </Grid>
+        <Grid Background="White" Height="110">
+            <StackPanel  Orientation="Horizontal" Width="494" Margin="0,-6.667,0,80" Height="36.667" HorizontalAlignment="Center" VerticalAlignment="Center">
+                <Label ToolTip="给这次任务取个简要名字" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Content="取名" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0,2.38" Width="123.833" Foreground="Black" Background="White" FontWeight="Bold" />
+                <Label ToolTip="你需要备注哪些内容？定时到达时将会显示" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Content="备注" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0,2.38" Width="123.834" Foreground="Black" Background="White" FontWeight="Bold" />
+                <Label ToolTip="是提醒你？还是执行某些操作？"  HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Content="类型" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0,2.38" Width="123.833" Foreground="Black" Background="White" FontWeight="Bold" />
+                <Label ToolTip="开始倒计时任务，你可以中途撤销" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Content="选择" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0,2.38" Width="123.833" Foreground="Black" Background="White" FontWeight="Bold" />
+            </StackPanel>
+            <TextBox x:Name="task_textbox_two" HorizontalAlignment="Left" Height="35" Margin="22.667,46.334,0,0" TextWrapping="NoWrap" VerticalAlignment="Top" Width="79.333" Text="任务标题.."/>
+            <RichTextBox HorizontalAlignment="Left" Margin="125,46.334,0,0" VerticalAlignment="Top" Height="35" Width="117.147">
+                <FlowDocument>
+                    <Paragraph x:Name="task_pgh_two">
+                        <Run Text="在这里写下备注.."/>
+                    </Paragraph>
+                </FlowDocument>
+            </RichTextBox>
+            <ComboBox SelectionChanged="Task_combobox_two_SelectionChanged" x:Name="task_combobox_two" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" HorizontalAlignment="Left" VerticalAlignment="Top" Width="108" Margin="260.48,46.334,0,0" Height="35">
+                <ComboBoxItem Content="闹钟以及提醒"/>
+                <ComboBoxItem Content="打开某个应用"/>
+                <ComboBoxItem Content="关机操作"/>
+                <ComboBoxItem Content="锁屏操作"/>
+                <ComboBoxItem Visibility="Collapsed" Content="无任何内容"/>
+            </ComboBox>
+            <Button x:Name="task_scbtn_two" ToolTip="倒计时任务，或中途撤销" Content="开始" HorizontalAlignment="Left" Margin="394.333,35,0,0" VerticalAlignment="Top" Width="75" Height="65" FontSize="14" BorderBrush="White" Foreground="#FF131313" Click="Task_scbtn_two_Click">
+                <Button.Background>
+                    <RadialGradientBrush>
+                        <GradientStop Color="White" Offset="1"/>
+                        <GradientStop Color="#FFF39797"/>
+                    </RadialGradientBrush>
+                </Button.Background>
+            </Button>
+            <Button x:Name="open_task_btn_two" Content="ADD" HorizontalAlignment="Center" VerticalAlignment="Center" Width="500" Panel.ZIndex="1" Height="110" Background="#FFEDE4EE" FontSize="36" Click="Open_task_btn_two_Click"/>
+
+        </Grid>
+        <Grid Background="White" Height="110">
+            <StackPanel  Orientation="Horizontal" Width="494" Margin="0,-6.667,0,80" Height="36.667" HorizontalAlignment="Center" VerticalAlignment="Center">
+                <Label ToolTip="给这次任务取个简要名字" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Content="取名" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0,2.38" Width="123.833" Foreground="Black" Background="White" FontWeight="Bold" />
+                <Label ToolTip="你需要备注哪些内容？定时到达时将会显示" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Content="备注" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0,2.38" Width="123.834" Foreground="Black" Background="White" FontWeight="Bold" />
+                <Label ToolTip="是提醒你？还是执行某些操作？"  HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Content="类型" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0,2.38" Width="123.833" Foreground="Black" Background="White" FontWeight="Bold" />
+                <Label ToolTip="开始倒计时任务，你可以中途撤销" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Content="选择" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0,2.38" Width="123.833" Foreground="Black" Background="White" FontWeight="Bold" />
+            </StackPanel>
+            <TextBox x:Name="task_textbox_three" HorizontalAlignment="Left" Height="35" Margin="22.667,46.334,0,0" TextWrapping="NoWrap" VerticalAlignment="Top" Width="79.333" Text="任务标题.."/>
+            <RichTextBox HorizontalAlignment="Left" Margin="125,46.334,0,0" VerticalAlignment="Top" Height="35" Width="117.147">
+                <FlowDocument>
+                    <Paragraph x:Name="task_pgh_three">
+                        <Run Text="在这里写下备注.."/>
+                    </Paragraph>
+                </FlowDocument>
+            </RichTextBox>
+            <ComboBox SelectionChanged="Task_combobox_three_SelectionChanged" x:Name="task_combobox_three" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" HorizontalAlignment="Left" VerticalAlignment="Top" Width="108" Margin="260.48,46.334,0,0" Height="35">
+                <ComboBoxItem Content="闹钟以及提醒"/>
+                <ComboBoxItem Content="打开某个应用"/>
+                <ComboBoxItem Content="关机操作"/>
+                <ComboBoxItem Content="锁屏操作"/>
+                <ComboBoxItem Visibility="Collapsed" Content="无任何内容"/>
+            </ComboBox>
+            <Button x:Name="task_scbtn_three" ToolTip="倒计时任务，或中途撤销" Content="开始" HorizontalAlignment="Left" Margin="394.333,35,0,0" VerticalAlignment="Top" Width="75" Height="65" FontSize="14" BorderBrush="White" Foreground="#FF131313" Click="Task_scbtn_three_Click">
+                <Button.Background>
+                    <RadialGradientBrush>
+                        <GradientStop Color="White" Offset="1"/>
+                        <GradientStop Color="#FFF39797"/>
+                    </RadialGradientBrush>
+                </Button.Background>
+            </Button>
+            <Button x:Name="open_task_btn_three" Content="ADD" HorizontalAlignment="Center" VerticalAlignment="Center" Width="500" Panel.ZIndex="1" Height="110" Background="#FFDBE4DF" FontSize="36" Click="Open_task_btn_three_Click"/>
+
+        </Grid>
+        <Grid>
+            <Label Content="你不能关闭XiaoYue，否则定时任务将无法按时进行。" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="14" Foreground="#FF477839"/>
+        </Grid>
+    </StackPanel>
+</Window>
