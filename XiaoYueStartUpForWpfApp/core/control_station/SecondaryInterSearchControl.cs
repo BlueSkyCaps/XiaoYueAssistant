@@ -209,7 +209,9 @@ namespace XiaoYueStartUpForWpfApp.core.control_station
         private string TranslationRing(string originalText, string to)
         {
             Encoding encoding = Encoding.UTF8;
-            string ownerUri = "http://www.coollsx.com/api-station/transfer/bd/b73af658bcc5fb4a963c8a1ee0d05e2a/text-tr/general";
+            // 下行的url，已注释说明，请看当前目录下的ResultThinkTheSpeechControl.cs相关函数
+            string ownerUri = "http://localhost/fy";
+            // string ownerUri = "http://www.coollsx.com/api-station/transfer/.../text-tr/general";
             string qUri = ownerUri + "/index.php";
             this.request = (HttpWebRequest)WebRequest.Create(qUri);
             this.request.Method = "POST";
@@ -257,7 +259,9 @@ namespace XiaoYueStartUpForWpfApp.core.control_station
         /// <returns></returns>
         private string GetWolfamAlphaAnwser(string englishText)
         {
-            string ownerUri = "http://www.coollsx.com/api-station/transfer/wa/b73af658bcc5fb4a963c8a1ee0d05e2a/short-a";
+            // 下行的url，已注释说明，请看当前目录下的ResultThinkTheSpeechControl.cs相关函数
+            string ownerUri = "http://localhost/as/index.php";
+            // string ownerUri = "http://www.coollsx.com/api-station/transfer/.../short-a";
             string qUri = ownerUri + "?query=" + englishText;
             this.request = (HttpWebRequest)WebRequest.Create(qUri);
             this.request.Method = "GET";
