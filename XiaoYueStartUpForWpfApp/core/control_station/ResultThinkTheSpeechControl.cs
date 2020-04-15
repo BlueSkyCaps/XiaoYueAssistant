@@ -164,7 +164,13 @@ namespace XiaoYueStartUpForWpfApp.core.control_station
         private string TranslationRing(string originalText, string to)
         {
             Encoding encoding = Encoding.UTF8;
-            string ownerUri = "http://www.coollsx.com/api-station/transfer/bd/b73af658bcc5fb4a963c8a1ee0d05e2a/text-tr/general";
+            /* 
+            下行Url访问自己的服务器获取翻译结果，你必须确保服务器已开启。需要处理返回的结果，并在此处直接接收，
+            相关服务器脚本已经给出，参见根目录README.md
+            当然，如果可以，你可以直接在此处处理API返回的结果，而不是用本人给出的脚本。查询接口文档，访问http://api.fanyi.baidu.com/product/11
+            */
+            string ownerUri = "http://localhost:80/fy";
+            // string ownerUri = "http://www.coollsx.com/api-station/transfer/.../text-tr/general";
             string qUri = ownerUri + "/index.php";
             this.request = (HttpWebRequest)WebRequest.Create(qUri);
             this.request.Method = "POST";
@@ -172,6 +178,7 @@ namespace XiaoYueStartUpForWpfApp.core.control_station
             this.request.AllowAutoRedirect = false;
             this.request.Timeout = 15000;
             this.request.ContentType = "application/x-www-form-urlencoded";
+            // 参数code为自己配置的服务器授权密码，你可以在相关服务器脚本中修改，并在此处更新。
             string fields = "code=" + "c5e8962fb24a491670e1e79a8702439b" + "&original=" + WebUtility.UrlEncode(originalText) + "&to=" + to;
             byte[] fields_bytes = encoding.GetBytes(fields);
             this.request.GetRequestStream().Write(fields_bytes, 0, fields_bytes.Length);
@@ -198,7 +205,14 @@ namespace XiaoYueStartUpForWpfApp.core.control_station
         /// <returns></returns>
         private string GetWolfamAlphaAnwser(string englishTQuestion)
         {
-            string ownerUri = "http://www.coollsx.com/api-station/transfer/wa/b73af658bcc5fb4a963c8a1ee0d05e2a/short-a";
+            /* 
+            下行Url访问自己的服务器获取WolfamAlpha返回的答案，你必须确保服务器已开启。需要处理返回的结果，并在此处直接接收，
+            相关服务器脚本已经给出，参见根目录README.md
+            当然，如果可以，你可以直接在此处处理API返回的结果，而不是用本人给出的脚本，
+            需要请查看https://products.wolframalpha.com/short-answers-api/documentation/
+            */
+            string ownerUri = "http://localhost/as/index.php";
+            // string ownerUri = "http://www.coollsx.com/api-station/transfer/.../short-a";
             string qUri = ownerUri + "?query=" + englishTQuestion;
             this.request = (HttpWebRequest)WebRequest.Create(qUri);
             this.request.Method = "GET";
