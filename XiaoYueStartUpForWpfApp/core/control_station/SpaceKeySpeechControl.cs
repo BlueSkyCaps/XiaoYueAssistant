@@ -248,20 +248,25 @@ namespace XiaoYueStartUpForWpfApp.core.control_station
             if (!_isGotKey)
             {
                 Console.WriteLine("first get");
-                string ownerUri = "http://www.coollsx.com/";
-                string toUri = ownerUri + "api-station/direct/withkey/bd";
-                string queryUri = toUri + "?code=c5e8962fb24a491670e1e79a8702439b&type=spd";
-                HttpWebRequest httpWebRequest = WebRequest.CreateHttp(queryUri);
-                httpWebRequest.Method = "GET";
-                httpWebRequest.Timeout = 10000;
-                httpWebRequest.AllowAutoRedirect = true;
-                StreamReader streamReader = new StreamReader(httpWebRequest.GetResponse().GetResponseStream(), Encoding.UTF8);
-                JObject jObject = JObject.Parse(streamReader.ReadToEnd());
-                streamReader.Close();
-                streamReader.Dispose();
-                SpaceKeySpeechControl.APP_ID = (string)jObject.GetValue("APP_ID");
-                SpaceKeySpeechControl.API_KEY = (string)jObject.GetValue("API_KEY");
-                SpaceKeySpeechControl.SECRET_KEY = (string)jObject.GetValue("SECRET_KEY");
+                // string ownerUri = "http://www.coollsx.com/";
+                // string toUri = ownerUri + "api-station/direct/.../bd";
+                // string queryUri = toUri + "?code=???&type=spd";
+                // HttpWebRequest httpWebRequest = WebRequest.CreateHttp(queryUri);
+                // httpWebRequest.Method = "GET";
+                // httpWebRequest.Timeout = 10000;
+                // httpWebRequest.AllowAutoRedirect = true;
+                // StreamReader streamReader = new StreamReader(httpWebRequest.GetResponse().GetResponseStream(), Encoding.UTF8);
+                // JObject jObject = JObject.Parse(streamReader.ReadToEnd());
+                // streamReader.Close();
+                // streamReader.Dispose();
+                // SpaceKeySpeechControl.APP_ID = (string)jObject.GetValue("APP_ID");
+                // SpaceKeySpeechControl.API_KEY = (string)jObject.GetValue("API_KEY");
+                // SpaceKeySpeechControl.SECRET_KEY = (string)jObject.GetValue("SECRET_KEY");
+                
+                // 百度语音识别sdk需要的密钥，你需要获取，参见根目录README.md
+                SpaceKeySpeechControl.APP_ID = "你的APP ID";
+                SpaceKeySpeechControl.API_KEY = "你的API KEY";
+                SpaceKeySpeechControl.SECRET_KEY = "你的SECRET KEY";
                 _isGotKey = true;
             }
             // 初始化语音识别实例
