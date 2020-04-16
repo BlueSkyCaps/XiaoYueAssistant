@@ -27,7 +27,7 @@ WIndows上的一款智能语音助手，能够实现语音交互、定时任务�
 3.
 启动Apache服务器，并在www根目录下创建fy、as目录，分别创建index.php。
 XiaoYueStartUpForWpfApp\core\control_station\ResultThinkTheSpeechControl和SecondaryInterSearchControl类需要使用到，参见ResultThinkTheSpeechControl类中相关函数的注释说明。
-/fy/index.php中添加项目根目录下文件fy_station中的代码，/as/index.php添加文件as_station中代码，并修改成自己的相关密钥。
+/fy/index.php中添加项目根目录下文件fy_station中的代码，/as/index.php添加文件as_station中代码，并修改成自己的相关密钥。as_station中的WolframAlpha密钥，你需要申请，参见https://products.wolframalpha.com/short-answers-api/documentation/
 
 4.
 如果需要，XiaoYueStartUpForWpfApp\parameters\settings\server\connect\ConnectingArgs.cs定义了Redis服务器地址以及密码。
